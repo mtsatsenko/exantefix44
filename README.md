@@ -18,6 +18,31 @@ $ cd exantefix44 && mvn package
 ```
 3. import resulting `field` and `messages` packages in place of standard quickfixj ones
 ```java
-import com.github.mtsatsenko.exantefix44.field;
-import com.github.mtsatsenko.exantefix44.messages;
+import quickfix.*;
+import com.github.mtsatsenko.exantefix44.field.*;
+import com.github.mtsatsenko.exantefix44.messages.MessageFactory;
+
+import java.io.FileInputStream;
+
+public class MyClass {
+
+  public static void main(String args[]) throws Exception {
+    if (args.length != 1) return;
+    String fileName = args[0];
+
+    // FooApplication is your class that implements the Application interface
+    Application application = new FooApplication();
+
+    SessionSettings settings = new SessionSettings(new FileInputStream(fileName));
+    MessageStoreFactory storeFactory = new FileStoreFactory(settings);
+    LogFactory logFactory = new FileLogFactory(settings);
+    MessageFactory messageFactory = new MessageFactory();
+    Acceptor acceptor = new SocketAcceptor
+      (application, storeFactory, settings, logFactory, messageFactory);
+    acceptor.start();
+    // while(condition == true) { do something; }
+    acceptor.stop();
+  }
+}
+
 ```
