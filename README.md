@@ -1,4 +1,4 @@
-# exante.eu FIX44
+# EXANTE FIX44
 This repository contains FIX (Financial Information eXchange) API Data dictionary, Field classes and Message Factory for Exante broker [https://exante.eu](https://exante.eu/p/10762/) you can use in your QuickFIX/J project
 
 EXANTE is a International investment services company established in 2011 that offers global multi-asset financial services, including direct access to a wide range of financial markets in the US, European Union and Asia-Pacific. EXANTE provides online trading access to over 50 markets worldwide.
